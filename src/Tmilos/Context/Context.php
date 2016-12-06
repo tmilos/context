@@ -1,5 +1,15 @@
 <?php
+
 declare(strict_types=1);
+
+/*
+ * This file is part of the Tmilos/Context package.
+ *
+ * (c) Milos Tomic <tmilos@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace Tmilos\Context;
 
@@ -32,7 +42,7 @@ interface Context extends \IteratorAggregate, \Countable, Dumpable
     public function getOrCreate(string $name, string $class);
 
     /**
-     * @param string $name
+     * @param string   $name
      * @param callable $callable
      *
      * @return Context|mixed
@@ -44,7 +54,7 @@ interface Context extends \IteratorAggregate, \Countable, Dumpable
      *
      * @return bool
      */
-    public function has(string $name) : bool;
+    public function has(string $name): bool;
 
     /**
      * @param string        $name
@@ -69,5 +79,5 @@ interface Context extends \IteratorAggregate, \Countable, Dumpable
     /**
      * @return array
      */
-    public function toArray() : array;
+    public function toArray(): array;
 }

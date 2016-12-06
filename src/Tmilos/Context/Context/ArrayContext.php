@@ -1,5 +1,15 @@
 <?php
+
 declare(strict_types=1);
+
+/*
+ * This file is part of the Tmilos/Context package.
+ *
+ * (c) Milos Tomic <tmilos@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace Tmilos\Context\Context;
 
@@ -44,9 +54,9 @@ class ArrayContext implements Context
             if (!class_exists($class)) {
                 throw new \InvalidArgumentException(sprintf('Class "%s" does not exist', $class));
             }
-            $result = new $class;
+            $result = new $class();
             $this->items[$name] = $result;
-            if ($result instanceof ArrayContext) {
+            if ($result instanceof self) {
                 $result->setParent($this);
             }
         }
@@ -60,7 +70,7 @@ class ArrayContext implements Context
         if (!$result) {
             $result = $callable($name, $this);
             $this->items[$name] = $result;
-            if ($result instanceof ArrayContext) {
+            if ($result instanceof self) {
                 $result->setParent($this);
             }
         }
@@ -68,17 +78,17 @@ class ArrayContext implements Context
         return $this->items[$name];
     }
 
-    public function has(string $name) : bool
+    public function has(string $name): bool
     {
         return array_key_exists($name, $this->items);
     }
 
-    public function toArray() : array
+    public function toArray(): array
     {
         return $this->_dump(false);
     }
 
-    public function dump() : array
+    public function dump(): array
     {
         return $this->_dump(true);
     }
@@ -123,17 +133,17 @@ class ArrayContext implements Context
         $this->items = [];
     }
 
-    public function getIterator() : \ArrayIterator
+    public function getIterator(): \ArrayIterator
     {
         return new \ArrayIterator($this->items);
     }
 
-    public function count() : int
+    public function count(): int
     {
         return count($this->items);
     }
 
-    private function _dump(bool $includeClass) : array
+    private function _dump(bool $includeClass): array
     {
         $result = [];
         if ($includeClass) {
