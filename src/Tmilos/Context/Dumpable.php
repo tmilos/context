@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /*
  * This file is part of the Tmilos/Context package.
  *
@@ -18,5 +16,5 @@ interface Dumpable
     /**
      * @return array
      */
-    public function dump(): array;
+    public function dump();
 }

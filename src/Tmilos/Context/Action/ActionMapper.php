@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /*
  * This file is part of the Tmilos/Context package.
  *
@@ -22,5 +20,5 @@ interface ActionMapper
      *
      * @return Action
      */
-    public function __invoke(Action $action): Action;
+    public function __invoke(Action $action);
 }

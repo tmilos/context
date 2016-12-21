@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /*
  * This file is part of the Tmilos/Context package.
  *
@@ -31,7 +29,7 @@ interface Context extends \IteratorAggregate, \Countable, Dumpable
      *
      * @return mixed|Context
      */
-    public function get(string $name, $default = null);
+    public function get($name, $default = null);
 
     /**
      * @param string $name
@@ -39,7 +37,7 @@ interface Context extends \IteratorAggregate, \Countable, Dumpable
      *
      * @return Context|mixed
      */
-    public function getOrCreate(string $name, string $class);
+    public function getOrCreate($name, $class);
 
     /**
      * @param string   $name
@@ -47,14 +45,14 @@ interface Context extends \IteratorAggregate, \Countable, Dumpable
      *
      * @return Context|mixed
      */
-    public function getOrCall(string $name, callable $callable);
+    public function getOrCall($name, $callable);
 
     /**
      * @param string $name
      *
      * @return bool
      */
-    public function has(string $name): bool;
+    public function has($name);
 
     /**
      * @param string        $name
@@ -62,14 +60,14 @@ interface Context extends \IteratorAggregate, \Countable, Dumpable
      *
      * @return void
      */
-    public function set(string $name, $value);
+    public function set($name, $value);
 
     /**
      * @param string $name
      *
      * @return Context|mixed|null
      */
-    public function remove(string $name);
+    public function remove($name);
 
     /**
      * @return void
@@ -79,5 +77,5 @@ interface Context extends \IteratorAggregate, \Countable, Dumpable
     /**
      * @return array
      */
-    public function toArray(): array;
+    public function toArray();
 }

@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /*
  * This file is part of the Tmilos/Context package.
  *
@@ -35,5 +33,5 @@ interface CompositeAction extends Action, Dumpable
     /**
      * @return Action[]
      */
-    public function getActions(): array;
+    public function getActions();
 }

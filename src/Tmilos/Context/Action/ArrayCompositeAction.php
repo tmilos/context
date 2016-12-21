@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /*
  * This file is part of the Tmilos/Context package.
  *
@@ -34,7 +32,7 @@ class ArrayCompositeAction implements CompositeAction
         }
     }
 
-    public function getActions(): array
+    public function getActions()
     {
         return $this->actions;
     }
@@ -58,7 +56,7 @@ class ArrayCompositeAction implements CompositeAction
         }
     }
 
-    public function dump(): array
+    public function dump()
     {
         $result = [];
         foreach ($this->actions as $action) {

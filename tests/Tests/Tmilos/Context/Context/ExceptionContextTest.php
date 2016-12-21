@@ -68,6 +68,7 @@ class ExceptionContextTest extends \PHPUnit_Framework_TestCase
 
     public function test_get_last_exception_return_exception_that_was_last_added()
     {
+        $expected = null;
         $context = new ExceptionContext();
         for ($i=0; $i<5; $i++) {
             $context->addException($expected = new \Exception($i));

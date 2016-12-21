@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /*
  * This file is part of the Tmilos/Context package.
  *
@@ -42,12 +40,12 @@ class ArrayContext implements Context
         $this->parent = $parent;
     }
 
-    public function get(string $name, $default = null)
+    public function get($name, $default = null)
     {
         return array_key_exists($name, $this->items) ? $this->items[$name] : $default;
     }
 
-    public function getOrCreate(string $name, string $class)
+    public function getOrCreate($name, $class)
     {
         $result = $this->get($name);
         if (!$result) {
@@ -64,7 +62,7 @@ class ArrayContext implements Context
         return $this->items[$name];
     }
 
-    public function getOrCall(string $name, callable $callable)
+    public function getOrCall($name, $callable)
     {
         $result = $this->get($name);
         if (!$result) {
@@ -78,22 +76,22 @@ class ArrayContext implements Context
         return $this->items[$name];
     }
 
-    public function has(string $name): bool
+    public function has($name)
     {
         return array_key_exists($name, $this->items);
     }
 
-    public function toArray(): array
+    public function toArray()
     {
         return $this->doDump(false);
     }
 
-    public function dump(): array
+    public function dump()
     {
         return $this->doDump(true);
     }
 
-    public function set(string $name, $value)
+    public function set($name, $value)
     {
         $existing = isset($this->items[$name]) ? $this->items[$name] : null;
         if ($existing === $value) {
@@ -108,7 +106,7 @@ class ArrayContext implements Context
         }
     }
 
-    public function remove(string $name)
+    public function remove($name)
     {
         $result = null;
         if (array_key_exists($name, $this->items)) {
@@ -133,17 +131,17 @@ class ArrayContext implements Context
         $this->items = [];
     }
 
-    public function getIterator(): \ArrayIterator
+    public function getIterator()
     {
         return new \ArrayIterator($this->items);
     }
 
-    public function count(): int
+    public function count()
     {
         return count($this->items);
     }
 
-    private function doDump(bool $includeClass): array
+    private function doDump($includeClass)
     {
         $result = [];
         if ($includeClass) {

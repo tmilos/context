@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /*
  * This file is part of the Tmilos/Context package.
  *
@@ -32,7 +30,7 @@ class ExceptionContext extends ArrayContext
     /**
      * @return \Exception
      */
-    public function getException(): \Exception
+    public function getException()
     {
         return $this->exception;
     }
