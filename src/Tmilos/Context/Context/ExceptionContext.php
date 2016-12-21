@@ -42,7 +42,7 @@ class ExceptionContext extends ArrayContext
      */
     public function getLastException()
     {
-        if (null == $this->nextExceptionContext) {
+        if (!$this->nextExceptionContext) {
             return $this->exception;
         }
 
@@ -65,7 +65,7 @@ class ExceptionContext extends ArrayContext
     public function addException(\Exception $exception)
     {
         if ($this->exception) {
-            if (null == $this->nextExceptionContext) {
+            if (!$this->nextExceptionContext) {
                 $this->nextExceptionContext = new static($exception);
 
                 return $this->nextExceptionContext;

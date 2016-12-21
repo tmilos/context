@@ -37,7 +37,7 @@ class ArrayContext implements Context
         return $this;
     }
 
-    private function setParent(Context $parent = null)
+    protected function setParent(Context $parent = null)
     {
         $this->parent = $parent;
     }
@@ -85,12 +85,12 @@ class ArrayContext implements Context
 
     public function toArray(): array
     {
-        return $this->_dump(false);
+        return $this->doDump(false);
     }
 
     public function dump(): array
     {
-        return $this->_dump(true);
+        return $this->doDump(true);
     }
 
     public function set(string $name, $value)
@@ -143,7 +143,7 @@ class ArrayContext implements Context
         return count($this->items);
     }
 
-    private function _dump(bool $includeClass): array
+    private function doDump(bool $includeClass): array
     {
         $result = [];
         if ($includeClass) {
