@@ -5,6 +5,7 @@
 [![Build Status](https://travis-ci.org/tmilos/context.svg?branch=master)](https://travis-ci.org/tmilos/context)
 [![Coverage Status](https://coveralls.io/repos/github/tmilos/context/badge.svg?branch=master)](https://coveralls.io/github/tmilos/context?branch=master)
 [![License](https://img.shields.io/packagist/l/tmilos/context.svg)](https://packagist.org/packages/tmilos/context)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/4a1c02a5-9f73-4702-8c59-0805cb6d3f5e/small.png)](https://insight.sensiolabs.com/projects/4a1c02a5-9f73-4702-8c59-0805cb6d3f5e)
 
 A hierarchical context tree PHP library, with hierarchical parameter bags - context, and actions working with them.
 
